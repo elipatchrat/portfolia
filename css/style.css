@@ -1,120 +1,172 @@
-/* GLOBAL STYLES */
+/* GLOBAL STYLES (Include your body/font setup here) */
 body {
     font-family: Arial, sans-serif;
-    margin: 0; /* Remove default body margin */
-    padding: 0;
+    margin: 0;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
 }
 
-/* --- HEADER CONTAINER --- */
+/* --- NAVIGATION STYLES (As previously agreed) --- */
 
 header {
-    background-color: #333; /* Dark header background */
+    background-color: #333;
     padding: 15px 0;
     width: 100%;
 }
 
-/* --- NAVIGATION LIST STYLING --- */
-
 nav ul {
-    list-style: none;         /* REMOVES BULLETS */
-    display: flex;            /* Enables Flexbox for horizontal alignment */
-    justify-content: center;  /* Centers the items */
+    list-style: none;
+    display: flex;
+    justify-content: center;
     align-items: center;
     padding: 0;
     margin: 0;
 }
 
 nav li {
-    /* Only margin is needed here to space the list items */
     margin: 0 10px; 
 }
 
-/* --- LINK STYLING USING YOUR .nav-link CLASS --- */
-
 .nav-link {
-    /* These styles apply to the <a> tag itself */
-    color: rgb(255, 250, 216); /* Light color for text */
+    color: rgb(255, 250, 216);
     text-decoration: none;
-    
-    /* Reduced padding and margin from your previous attempt for a functional navbar */
     padding: 10px 15px; 
-    margin: 0; /* Margin is handled by the <li> */
-    
+    margin: 0;
     border-radius: 5px;
-    transition: all 0.3s ease; /* Smooth transition for hover */
-    display: inline-block; /* Essential to make padding/background work */
+    transition: all 0.3s ease;
+    display: inline-block;
 }
-
-/* --- HOVER EFFECT --- */
 
 .nav-link:hover {
-    background-color: #0695e9; /* Light blue background on hover */
-    color: #13cbd1;             /* Cyan text on hover */
-}
-/* Style the main heading on the landing page */
-main h1 {
-    font-size: 3.5em; /* Large, impressive size */
-    color: #0695e9;   /* Use your primary accent color */
-    margin-bottom: 0.2em;
+    background-color: #0695e9; 
+    color: #13cbd1;
 }
 
-/* Style the subtitle */
-main p {
-    font-size: 1.5em;
-    color: #555;
-}
-/* Update your BODY style to use Flexbox */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    min-height: 100vh; /* Ensures the body is at least full screen height */
-    display: flex;
-    flex-direction: column; /* Stacks the header, main, and footer vertically */
-}
+/* --- MAIN CONTENT & PROJECTS PAGE GRID LAYOUT --- */
 
-/* Style the main content area */
 main {
-    flex-grow: 1; /* Allows the main area to take up all available vertical space */
+    flex-grow: 1;
     padding: 40px 20px;
-    text-align: center; /* Center all block content inside */
-    display: flex;
-    justify-content: center; /* Center the section horizontally */
-    align-items: center;     /* Center the section vertically */
+    text-align: center;
 }
 
-/* Style the section wrapper */
 main section {
-    max-width: 800px; /* Limits the width of your text content */
-    width: 90%;
+    max-width: 1200px; /* Wider section for the grid */
+    margin: 0 auto;
 }
-/* --- PROJECT STYLING --- */
 
-.project-entry {
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.project-grid {
+    display: grid;
+    /* Responsive grid: minimum 220px wide columns */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 20px; 
+    margin: 40px 0;
+}
+
+.grid-item {
+    background-color: #f4f4f4;
     padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
-    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    border-bottom: 5px solid #0695e9; 
 }
 
-.project-entry h2 {
+.grid-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item h3 {
+    margin-top: 0;
+    font-size: 1.2em;
     color: #333;
-    border-bottom: 2px solid #0695e9;
-    padding-bottom: 5px;
+    margin-bottom: 5px;
 }
 
+.grid-item .date {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* --- MODAL (POP-OUT) STYLES --- */
+
+.project-modal {
+    position: fixed; 
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.project-modal.active {
+    display: flex; 
+}
+
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 80%;
+    width: 900px; 
+    position: relative;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.3s ease-out; 
+    text-align: left; /* Reset text alignment for details */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.modal-content h2 {
+    color: #0695e9;
+    font-size: 2em;
+    margin-top: 0;
+}
+
+.modal-content p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Styling for the link button inside the modal */
 .project-link {
     display: inline-block;
-    background-color: #0695e9; /* Your primary color */
+    background-color: #0695e9; 
     color: white;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
-    margin-top: 10px;
     transition: background-color 0.3s;
 }
 
 .project-link:hover {
-    background-color: #03527a; /* Darker shade on hover */
+    background-color: #03527a; 
 }
