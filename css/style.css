@@ -1,16 +1,30 @@
-/* GLOBAL STYLES (Include your body/font setup here) */
+/* ================================================= */
+/* 1. GLOBAL STYLES & BACKGROUND */
+/* ================================================= */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
+    
+    /* BACKGROUND IMAGE SETUP */
+    /* Assumes image is located at: ../images/indexbackground.png */
+    background-image: url('../images/indexbackground.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* Keeps image fixed when scrolling */
+    background-position: center center;
 }
 
-/* --- NAVIGATION STYLES (As previously agreed) --- */
+/* ================================================= */
+/* 2. HEADER & NAVIGATION */
+/* ================================================= */
 
 header {
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.95); /* Semi-transparent dark header */
     padding: 15px 0;
     width: 100%;
 }
@@ -29,7 +43,7 @@ nav li {
 }
 
 .nav-link {
-    color: rgb(255, 250, 216);
+    color: rgb(255, 250, 216); /* Off-white text */
     text-decoration: none;
     padding: 10px 15px; 
     margin: 0;
@@ -39,22 +53,51 @@ nav li {
 }
 
 .nav-link:hover {
-    background-color: #0695e9; 
-    color: #13cbd1;
+    background-color: #0695e9; /* Light blue background on hover */
+    color: #13cbd1; /* Cyan text on hover */
 }
 
-/* --- MAIN CONTENT & PROJECTS PAGE GRID LAYOUT --- */
+/* ================================================= */
+/* 3. MAIN CONTENT (Readability Fix) */
+/* ================================================= */
 
 main {
-    flex-grow: 1;
+    flex-grow: 1; /* Pushes footer to the bottom */
     padding: 40px 20px;
     text-align: center;
+    display: flex; /* Centers content vertically/horizontally */
+    justify-content: center;
+    align-items: center;
 }
 
 main section {
-    max-width: 1200px; /* Wider section for the grid */
+    max-width: 1200px;
+    width: 90%;
     margin: 0 auto;
+    
+    /* Readability Overlay for Home/About/Contact pages */
+    background-color: rgba(255, 255, 255, 0.9); /* White background with 90% opacity */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
 }
+
+/* Home Page Text Styling */
+main h1 {
+    font-size: 3.5em;
+    color: #0695e9;
+    margin-bottom: 0.2em;
+}
+
+main p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+
+/* ================================================= */
+/* 4. PROJECTS PAGE GRID LAYOUT */
+/* ================================================= */
 
 .project-grid {
     display: grid;
@@ -72,11 +115,11 @@ main section {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     text-align: center;
-    border-bottom: 5px solid #0695e9; 
+    border-bottom: 5px solid #0695e9; /* Primary color accent */
 }
 
 .grid-item:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-5px); /* Lift effect on hover */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -92,7 +135,9 @@ main section {
     color: #666;
 }
 
-/* --- MODAL (POP-OUT) STYLES --- */
+/* ================================================= */
+/* 5. MODAL (POP-OUT) STYLES */
+/* ================================================= */
 
 .project-modal {
     position: fixed; 
@@ -101,7 +146,7 @@ main section {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.9); /* Dark, transparent background */
     display: none; 
     justify-content: center;
     align-items: center;
@@ -121,7 +166,7 @@ main section {
     position: relative;
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
     animation: fadeIn 0.3s ease-out; 
-    text-align: left; /* Reset text alignment for details */
+    text-align: left;
 }
 
 @keyframes fadeIn {
@@ -156,7 +201,6 @@ main section {
     margin-bottom: 20px;
 }
 
-/* Styling for the link button inside the modal */
 .project-link {
     display: inline-block;
     background-color: #0695e9; 
@@ -169,4 +213,18 @@ main section {
 
 .project-link:hover {
     background-color: #03527a; 
+}
+
+/* ================================================= */
+/* 6. FOOTER STYLES */
+/* ================================================= */
+
+footer {
+    /* Ensures footer sticks to the bottom regardless of content height */
+    margin-top: auto; 
+    background-color: rgba(51, 51, 51, 0.95); /* Matches header color */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
 }
