@@ -1,13 +1,53 @@
-.nav-link {
-    color: #0695e9;
-    text-decoration: none;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+/* GLOBAL STYLES */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remove default body margin */
+    padding: 0;
 }
 
+/* --- HEADER CONTAINER --- */
+
+header {
+    background-color: #333; /* Dark header background */
+    padding: 15px 0;
+    width: 100%;
+}
+
+/* --- NAVIGATION LIST STYLING --- */
+
+nav ul {
+    list-style: none;         /* REMOVES BULLETS */
+    display: flex;            /* Enables Flexbox for horizontal alignment */
+    justify-content: center;  /* Centers the items */
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    /* Only margin is needed here to space the list items */
+    margin: 0 10px; 
+}
+
+/* --- LINK STYLING USING YOUR .nav-link CLASS --- */
+
+.nav-link {
+    /* These styles apply to the <a> tag itself */
+    color: rgb(255, 250, 216); /* Light color for text */
+    text-decoration: none;
+    
+    /* Reduced padding and margin from your previous attempt for a functional navbar */
+    padding: 10px 15px; 
+    margin: 0; /* Margin is handled by the <li> */
+    
+    border-radius: 5px;
+    transition: all 0.3s ease; /* Smooth transition for hover */
+    display: inline-block; /* Essential to make padding/background work */
+}
+
+/* --- HOVER EFFECT --- */
+
 .nav-link:hover {
-    background-color: #0695e9;
-    color: #13cbd1;
+    background-color: #0695e9; /* Light blue background on hover */
+    color: #13cbd1;             /* Cyan text on hover */
 }
