@@ -366,12 +366,14 @@ const projectData = {
 };
 
 // --- JAVASCRIPT LOGIC ---
-
 document.addEventListener('DOMContentLoaded', () => {
+    // Only run this script on the projects.html page (or a page containing the grid)
     const projectGrid = document.getElementById('projectGrid');
+    if (!projectGrid) return; 
+
     const modal = document.getElementById('project-modal');
     const modalContent = modal.querySelector('.modal-content');
-    
+
     // 1. Generate Grid Items from Project Data
     Object.keys(projectData).forEach(id => {
         const data = projectData[id];
@@ -389,18 +391,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function showModal(projectId) {
         const data = projectData[projectId];
         if (data) {
-            // Use innerHTML to inject the content dynamically
             modalContent.innerHTML = `
                 <span class="close-btn">&times;</span>
                 <h2>${data.title} (${data.date})</h2>
                 <p>${data.description}</p>
                 <a href="${data.link}" target="_blank" class="project-link">${data.linkText}</a>
             `;
-            // Re-attach the listener to the newly created close button
             modalContent.querySelector('.close-btn').onclick = hideModal;
-
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            document.body.style.overflow = 'hidden'; 
         }
     }
 
@@ -409,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
     
-    // 3. Attach Event Listeners to Grid Items (using delegation for efficiency)
+    // 3. Attach Event Listeners 
     projectGrid.addEventListener('click', (event) => {
         const item = event.target.closest('.grid-item');
         if (item) {
@@ -417,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 4. Close the modal if the user clicks the dark background
+    // 4. Close the modal on outside click
     window.onclick = function(event) {
         if (event.target === modal) {
             hideModal();
