@@ -51,3 +51,70 @@ nav li {
     background-color: #0695e9; /* Light blue background on hover */
     color: #13cbd1;             /* Cyan text on hover */
 }
+/* Style the main heading on the landing page */
+main h1 {
+    font-size: 3.5em; /* Large, impressive size */
+    color: #0695e9;   /* Use your primary accent color */
+    margin-bottom: 0.2em;
+}
+
+/* Style the subtitle */
+main p {
+    font-size: 1.5em;
+    color: #555;
+}
+/* Update your BODY style to use Flexbox */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh; /* Ensures the body is at least full screen height */
+    display: flex;
+    flex-direction: column; /* Stacks the header, main, and footer vertically */
+}
+
+/* Style the main content area */
+main {
+    flex-grow: 1; /* Allows the main area to take up all available vertical space */
+    padding: 40px 20px;
+    text-align: center; /* Center all block content inside */
+    display: flex;
+    justify-content: center; /* Center the section horizontally */
+    align-items: center;     /* Center the section vertically */
+}
+
+/* Style the section wrapper */
+main section {
+    max-width: 800px; /* Limits the width of your text content */
+    width: 90%;
+}
+/* --- PROJECT STYLING --- */
+
+.project-entry {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
+}
+
+.project-entry h2 {
+    color: #333;
+    border-bottom: 2px solid #0695e9;
+    padding-bottom: 5px;
+}
+
+.project-link {
+    display: inline-block;
+    background-color: #0695e9; /* Your primary color */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.project-link:hover {
+    background-color: #03527a; /* Darker shade on hover */
+}
