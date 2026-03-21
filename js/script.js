@@ -34,7 +34,7 @@ const projectData = {
         title: "Real-Time Chat Interface",
         date: "Oct 2025",
         description: "A simple chat application utilizing WebSockets (Socket.IO) for instant, bi-directional communication, focusing on minimal latency.",
-        link: "#",
+        link: "https://realtimechat-yxyl.onrender.com",
         linkText: "View Code"
     },
     "weather-api": {
