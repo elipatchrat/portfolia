@@ -55,7 +55,7 @@ const projectData = {
         title: "Portfolio Template Generator",
         date: "Aug 2025",
         description: "A Node.js command-line application that generates static HTML portfolios from user input via a series of prompts.",
-        link: "#",
+        link: "https://github.com/yourusername/portfolio-generator",
         linkText: "View Code"
     },
     "quiz-builder": {
